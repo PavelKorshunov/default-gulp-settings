@@ -1,0 +1,27 @@
+@import "variables";
+@import "prefixes";
+
+*
+	margin: 0
+	padding: 0
+
+a
+	text-decoration: none
+
+li
+	list-style: none
+
+body
+	background-color: $grey
+
+.menu
+	background-color: $light-green
+
+	&__wrapper
+		+display-flex()
+
+	&__item
+		list-style: none
+
+	&__inside
+		display: none

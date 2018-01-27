@@ -2,3 +2,5 @@ $ cat .gitignore
 
 /node_modules
 /*.json
+app/libs/
+/readme.txt

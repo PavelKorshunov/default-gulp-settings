@@ -2,10 +2,53 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" href="css/main.css">
+	<title>Menu</title>
+	<link rel="stylesheet" href="css/libs.min.css">
+	<link rel="stylesheet" href="css/default.css">
 </head>
 <body>
-	
+	<header>
+		<nav class="menu">
+			<button class="menu__button">
+				
+			</button>
+			<ul class="menu__wrapper container">
+				<li class="menu__item item__level1">
+					<a class="menu__link" href="#">Пункт 1</a>
+				</li>
+				<li class="menu__item item__level1 item__parent">
+					<a class="menu__link" href="#">Пункт 2</a>
+					<ul class="menu__wrapper menu__inside">
+						<li class="menu__item item__level2">
+							<a class="menu__link link__two" href="#">Внутренний 1</a>
+						</li>
+						<li class="menu__item item__level2">
+							<a class="menu__link link__two" href="#">Внутренний вложенный</a>
+						</li>
+						<li class="menu__item item__level2">
+							<a class="menu__link link__two" href="#">Внутренний 2</a>
+						</li>
+						<li class="menu__item item__level2">
+							<a class="menu__link link__two" href="#">Внутренний 3</a>
+						</li>
+					</ul>
+				</li>
+				<li class="menu__item item__level1 item__active">
+					<a class="menu__link" href="#">Пункт длинный</a>
+				</li>
+				<li class="menu__item item__level1">
+					<a class="menu__link" href="#">Пункт 3</a>
+				</li>
+				<li class="menu__item item__level1">
+					<a class="menu__link" href="#">Пункт 4</a>
+				</li>
+				<li class="menu__item item__level1">
+					<a class="menu__link" href="#">Пункт 4</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<script src="js/libs.min.js"></script>
+	<script src="js/common.js"></script>
 </body>
 </html>

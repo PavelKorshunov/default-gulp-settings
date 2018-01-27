@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  background-color: #ccc;
+}
+
+.menu {
+  background-color: rgba(0, 129, 57, 0.92);
+}
+
+.menu__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.menu__item {
+  list-style: none;
+}
+
+.menu__inside {
+  display: none;
+}
