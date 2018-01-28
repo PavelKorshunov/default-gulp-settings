@@ -36,7 +36,7 @@ gulp.task('clean', function(){
 	return del.sync('build');
 });
 
-gulp.task('build', ['clean', 'sass', 'scripts'], function(){
+gulp.task('build', ['clean', 'css-libs', 'scripts'], function(){
 	
 	var buildCss = gulp.src([
 		'app/css/default.css',
