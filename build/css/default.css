@@ -1,0 +1,103 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  src: local("Roboto Thin"), local("Roboto-Thin"), url(../fonts/Roboto-Thin.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local("Roboto Light"), local("Roboto-Light"), url(../fonts/Roboto-Light.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local("Roboto"), local("Roboto-Regular"), url(../fonts/Roboto-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  src: local("Roboto Medium"), local("Roboto-Medium"), url(../fonts/Roboto-Medium.woff2) format("woff2");
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  src: local("Roboto Bold"), local("Roboto-Bold"), url(../fonts/Roboto-Bold.woff2) format("woff2");
+}
+
+/*------MAIN--------*/
+/*------LINKS------*/
+/*------FONTS------*/
+/*-----BUTTONS-----*/
+.icon {
+  display: inline-block;
+  width: 15px;
+  height: 18px;
+  margin-right: 10px;
+  background-image: url("../img/icons/phone.svg");
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+
+*, ::after, ::before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Roboto',Tahoma,sans-serif;
+  font-weight: 300;
+  background: #fff;
+  min-width: 320px;
+  font-size: 20px;
+  color: #202020;
+  margin: 0;
+}
+
+.wrapper {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  max-width: 1170px;
+  min-width: 320px;
+  width: 100%;
+}
+
+.wrapper-large {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 1920px;
+  width: 100%;
+}
+
+.button {
+  display: inline-block;
+  font-weight: 300;
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 12px 35px;
+}
+
+.button_theme_purple {
+  background-color: #302572;
+}
+
+.button_theme_purple:hover {
+  background-color: #3c2f87;
+}

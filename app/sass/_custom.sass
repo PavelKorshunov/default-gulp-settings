@@ -1,0 +1,49 @@
+@import "fonts"
+@import "variables"
+@import "mixins"
+@import "icons"
+
+*, ::after, ::before
+  -webkit-box-sizing: border-box
+  box-sizing: border-box
+
+a
+  color: $link-white
+  text-decoration: none
+
+body
+  font-family: 'Roboto',Tahoma,sans-serif
+  font-weight: $roboto-light
+  background: #fff
+  min-width: 320px
+  font-size: 20px
+  color: #202020
+  margin: 0
+
+.wrapper
+  margin-right: auto
+  margin-left: auto
+  padding-left: 15px
+  padding-right: 15px
+  max-width: 1170px
+  min-width: 320px
+  width: 100%
+
+.wrapper-large
+  margin-right: auto
+  margin-left: auto
+  max-width: 1920px
+  width: 100%
+
+.button
+  display: inline-block
+  font-weight: $roboto-light
+  font-size: $button-size
+  text-transform: uppercase
+  padding: 12px 35px
+
+  &_theme_purple
+    background-color: $purple
+
+    &:hover
+      background-color: $purple-light

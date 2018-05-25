@@ -1,4 +1,8 @@
 $ cat .gitignore
 
+.git
+.idea
 /node_modules
 /*.json
+app/libs/
+readme.md
