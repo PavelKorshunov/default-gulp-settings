@@ -14,3 +14,5 @@
 <p><b>npm i gulp-cssnano gulp-rename --save-dev</b></p>
 <p>Устанавливаем gulp-uglify для сжатия js файлов и gulp-concat для переименования js файлов</p>
 <p><b>npm i --save-dev gulp-uglify gulp-concat</b></p>
+<p>Устанавливаем gulp-autoprefixer для простановки префиксов</p>
+<p><b>npm install --save-dev gulp-autoprefixer</b></p>
