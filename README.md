@@ -16,3 +16,7 @@
 <p><b>npm i --save-dev gulp-uglify gulp-concat</b></p>
 <p>Устанавливаем gulp-autoprefixer для простановки префиксов</p>
 <p><b>npm install --save-dev gulp-autoprefixer</b></p>
+
+<h2>Установка всех зависимостей из package.json</h2>
+<p>Устанавливаем все зависимости</p>
+<p><b>npm install</b></p>
