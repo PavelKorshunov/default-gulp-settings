@@ -1,63 +1,60 @@
-var gulp    	  = require('gulp'),
-	sass    	  = require('gulp-sass'),
-	del     	  = require('del'),
-	cssnano 	  = require('gulp-cssnano'),
-	rename  	  = require('gulp-rename'),
-	concat  	  = require('gulp-concat'),
-	uglify  	  = require('gulp-uglify'),
-	autoprefixer  = require('gulp-autoprefixer');
+const { src, dest, series, watch } = require('gulp');
+const del = require('del');
+const sass = require('gulp-sass');
+const rename = require('gulp-rename');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const cssnano = require('gulp-cssnano');
+const autoprefixer  = require('gulp-autoprefixer');
 
-gulp.task('sass', function(){
-	return gulp.src('app/sass/**/*.sass')
-	.pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
-	.pipe(autoprefixer({
-		browsers: ['last 2 versions']
-	}))
-	.pipe(gulp.dest('app/css/'));
-});
+function styles() {
+	return src('app/sass/**/*.sass')
+		.pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
+		.pipe(autoprefixer())
+		.pipe(dest('app/css'));
+}
 
-gulp.task('css-libs', ['sass'], function(){
-	return gulp.src('app/css/libs.css')
-	.pipe(cssnano())
-	.pipe(rename({suffix : '.min'}))
-	.pipe(gulp.dest('app/css/'));
-});
+function cssLibs() {
+	return src('app/css/libs.css')
+		.pipe(cssnano())
+		.pipe(rename({suffix : '.min'}))
+		.pipe(dest('app/css/'));
+}
 
-gulp.task('scripts', function(){
-	return gulp.src([
+function scripts() {
+	return src([
 		'app/libs/jquery/dist/jquery.min.js'
 	])
-	.pipe(concat('libs.min.js'))
-	.pipe(uglify())
-	.pipe(gulp.dest('app/js/'));
-});
+		.pipe(concat('libs.min.js'))
+		.pipe(uglify())
+		.pipe(dest('app/js/'));
+}
 
-gulp.task('watch', ['css-libs', 'scripts'], function(){
-	gulp.watch('app/sass/**/*.sass', ['sass']);
-});
+function clean() {
+	return del(['build/*/'], {force: true});
+}
 
-gulp.task('clean', function(){
-	return del.sync('build');
-});
+function startWatch() {
+	watch('app/sass/**/*', styles);
+	watch(['app/**/*.js', '!app/**/*.min.js'], scripts);
+}
 
-gulp.task('build', ['clean', 'css-libs', 'scripts'], function(){
-	
-	var buildCss = gulp.src([
+function buildTask() {
+	return src([
 		'app/css/default.css',
-		'app/css/libs.min.css'
-	])
-	.pipe(gulp.dest('build/css/'));
+		'app/css/libs.min.css',
+		'app/fonts/**/*',
+		'app/img/**/*',
+		'app/js/**/*',
+		'app/*.html'
+	], {base: 'app'})
+		.pipe(dest('build'));
+}
 
-	var buildFonts = gulp.src('app/fonts/**/*')
-	.pipe(gulp.dest('build/fonts/'));
+exports.clean = clean;
+exports.styles = styles;
+exports.scripts = scripts;
+exports.startWatch = startWatch;
+exports.build = series(clean, styles, cssLibs, scripts, buildTask);
 
-	var buildImg = gulp.src('app/img/**/*')
-	.pipe(gulp.dest('build/img/'));
-
-	var buildJs = gulp.src('app/js/**/*')
-	.pipe(gulp.dest('build/js/'));
-
-	var buildHtml = gulp.src('app/*.html')
-	.pipe(gulp.dest('build/'));
-
-});
+exports.default = series(styles, cssLibs, scripts, startWatch);
